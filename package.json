@@ -4,7 +4,7 @@
 	"scripts": {
 		"dev": "nodemon",
 		"start": "node --loader ts-paths-esm-loader --experimental-specifier-resolution=node ./src",
-		"build": "node build.js && cp -r env dist/env",
+		"build": "node build.cjs && cp -r env dist/env",
 		"commit-a": "git add . && git cz",
 		"commit": "git cz",
 		"lint": "tslint --project \"tsconfig.json\"",
