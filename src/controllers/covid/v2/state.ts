@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { states } from '../helpers';
+import { states } from '../../../helpers';
 import got from 'got';
 
 const findTerm = (term: string) => {
@@ -56,22 +56,32 @@ const post = async (req: Request, res: Response, next: any) => {
 	res.status(400).json({ url: req.url, method: req.method, error: 'made a POST request to a GET endpoint' });
 };
 
-const getState = async (req: Request, res: Response, next: any) => {
+const get = async (req: Request, res: Response, next: any) => {
 	await checkState(req.params.id, req.params.type, req, res, next);
 };
 
-const getStateTimeseries = async (req: Request, res: Response, next: any) => {
+const time = async (req: Request, res: Response, next: any) => {
 	await checkState(req.params.id, req.params.type, req, res, next);
 };
 
-const allStates = async (req: Request, res: Response, next: any) => {
-	await got
-		.get(`https://api.covidactnow.org/v2/states.json?apiKey=${process.env.API_KEY}`)
-		.json()
-		.then((data) => {
-			res.status(200).json(data);
-		})
-		.catch((err) => next(err));
+const all = async (req: Request, res: Response, next: any) => {
+	if (req.params.type !== 'timeseries') {
+		await got
+			.get(`https://api.covidactnow.org/v2/states.json?apiKey=${process.env.API_KEY}`)
+			.json()
+			.then((data) => {
+				res.status(200).json(data);
+			})
+			.catch((err) => next(err));
+	} else if (req.params.type === 'timeseries') {
+		await got
+			.get(`https://api.covidactnow.org/v2/states.timeseries.json?apiKey=${process.env.API_KEY}`)
+			.json()
+			.then((data) => {
+				res.status(200).json(data);
+			})
+			.catch((err) => next(err));
+	}
 };
 
-export { post, getState, allStates, getStateTimeseries };
+export { post, get, all, time };
