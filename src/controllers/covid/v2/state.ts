@@ -20,7 +20,11 @@ async function checkState(state: string, type: string, req: Request, res: Respon
 							url: req.url,
 							method: req.method,
 							doc_count: Object.keys(data).length,
-							data: Object.assign(data, { url: undefined, annotations: undefined }),
+							data: Object.assign(data, {
+								url: undefined,
+								annotations: undefined,
+								totalTests: data.actuals.positiveTests + data.actuals.negativeTests,
+							}),
 						});
 					})
 					.catch((err) => next(err));
@@ -39,7 +43,11 @@ async function checkState(state: string, type: string, req: Request, res: Respon
 							url: req.url,
 							method: req.method,
 							doc_count: Object.keys(data).length,
-							data: Object.assign(data, { url: undefined, annotations: undefined }),
+							data: Object.assign(data, {
+								url: undefined,
+								annotations: undefined,
+								totalTests: data.actuals.positiveTests + data.actuals.negativeTests,
+							}),
 						});
 					})
 					.catch((err) => next(err));
