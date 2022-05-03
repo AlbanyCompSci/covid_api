@@ -1,0 +1,42 @@
+{
+	"name": "gamespeed.co",
+	"version": "0.2.1",
+	"scripts": {
+		"dev": "vite --port 5000 --host 0.0.0.0",
+		"build": "vite build",
+		"serve": "vite preview",
+		"clean": "rm -rf dist"
+	},
+	"dependencies": {
+		"@headlessui/vue": "^1.4.2",
+		"@heroicons/vue": "^1.0.5",
+		"autoprefixer": "^10.4.0",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"chart.js": "^3.7.1",
+		"headlessui": "^0.0.0",
+		"heroicons": "^1.0.5",
+		"kutty": "^0.5.2",
+		"ky": "^0.30.0",
+		"postcss": "^8.3.11",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-text-transition": "^1.3.0",
+		"tailwindcss": "^2.2.19",
+		"vue": "^3.2.16",
+		"vue-chart-3": "^3.1.8",
+		"vue-react": "^1.2.0",
+		"vue-router": "^4.0.12",
+		"vue-runtime-helpers": "^1.1.2",
+		"vue-text-slide": "^0.1.9",
+		"vue-text-transition": "^1.0.19",
+		"vue-textra": "^1.3.0",
+		"vue-typed-js": "^0.1.2",
+		"vue-typer": "^1.2.0",
+		"vue-writer": "^1.1.2",
+		"vuera": "^0.2.7"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^1.9.3",
+		"vite": "^2.6.4"
+	}
+}

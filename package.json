@@ -4,6 +4,8 @@
 	"scripts": {
 		"dev": "nodemon",
 		"start": "node --loader ts-paths-esm-loader --experimental-specifier-resolution=node ./src",
+		"web": "node /root/covid_tracker/web/node_modules/vite/bin/vite.js /root/covid_tracker/web --port 5000 --host 0.0.0.0",
+		"all": "yarn start & yarn web",
 		"build": "node build.cjs && cp -r env dist/env",
 		"commit-a": "git add . && git cz",
 		"commit": "git cz",
